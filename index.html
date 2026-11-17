@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christine & Jovie Wedding Invitation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tone.js for Romantic Wedding Music -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cormorant Garamond, Cinzel & Great Vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        .font-luxury { font-family: 'Cormorant Garamond', serif; }
+        
+        /* Apple Device Optimization & Smooth Rendering */
+        html {
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-image: linear-gradient(rgba(1, 18, 12, 0.35), rgba(1, 14, 10, 0.45)), url('https://static.vecteezy.com/system/resources/thumbnails/033/237/110/small_2x/ai-generated-outdoor-flower-arch-photo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f3e5ab;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        
+        .bg-emerald-deep { background-color: rgba(2, 24, 17, 0.95); }
+        .bg-emerald-dark { background-color: rgba(3, 36, 24, 0.92); backdrop-filter: blur(8px); }
+        .text-gold { color: #d4af37; }
+        .border-gold { border-color: #d4af37; }
+
+        /* Vecteezy Full Cover Background Styling - Taller & more spacious */
+        .url-cover-frame {
+            position: absolute;
+            inset: -45px;
+            width: calc(100% + 90px);
+            height: calc(100% + 90px);
+            background-image: url('https://static.vecteezy.com/system/resources/previews/022/726/073/original/elegant-gold-square-floral-border-with-hand-drawn-leaves-and-flowers-for-wedding-invitation-thank-you-card-logo-greeting-card-png.png');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.98;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (min-width: 640px) {
+            .url-cover-frame {
+                inset: -75px;
+                width: calc(100% + 150px);
+                height: calc(100% + 150px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .url-cover-frame {
+                inset: -95px;
+                width: calc(100% + 190px);
+                height: calc(100% + 190px);
+            }
+        }
+
+        .cover-content-box {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: transparent;
+            backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+            max-width: 400px;
+            width: 90%;
+            margin: auto;
+        }
+
+        @media (min-width: 640px) {
+            .cover-content-box {
+                padding: 2rem;
+                max-width: 480px;
+            }
+        }
+
+        .floral-corner-frame {
+            border: 2px solid rgba(212, 175, 55, 0.55);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.75);
+        }
+
+        /* Falling Leaves Animation */
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.85; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
+        }
+        .leaf {
+            position: absolute;
+            background: #d4af37;
+            border-radius: 150% 0 150% 0;
+            animation: fall linear infinite;
+            opacity: 0.65;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Slow multi-directional butterfly float animations */
+        @keyframes floatSlow1 {
+            0% { transform: translate(5vw, 95vh) rotate(0deg) scale(0.6); opacity: 0; }
+            20% { opacity: 0.9; }
+            50% { transform: translate(45vw, 40vh) rotate(45deg) scale(1); }
+            80% { transform: translate(85vw, 20vh) rotate(-15deg) scale(0.85); opacity: 0.9; }
+            100% { transform: translate(95vw, -10vh) rotate(30deg) scale(0.6); opacity: 0; }
+        }
+
+        @keyframes floatSlow2 {
+            0% { transform: translate(90vw, 90vh) rotate(0deg) scale(0.7); opacity: 0; }
+            25% { transform: translate(60vw, 55vh) rotate(-40deg) scale(1); opacity: 0.9; }
+            60% { transform: translate(30vw, 30vh) rotate(25deg) scale(0.9); opacity: 0.9; }
+            100% { transform: translate(5vw, -10vh) rotate(-50deg) scale(0.6); opacity: 0; }
+        }
+
+        @keyframes floatSlow3 {
+            0% { transform: translate(50vw, 100vh) rotate(0deg) scale(0.65); opacity: 0; }
+            30% { transform: translate(15vw, 60vh) rotate(50deg) scale(0.95); opacity: 0.9; }
+            70% { transform: translate(75vw, 25vh) rotate(-35deg) scale(0.9); opacity: 0.9; }
+            100% { transform: translate(40vw, -10vh) rotate(20deg) scale(0.6); opacity: 0; }
+        }
+
+        @keyframes floatSlow4 {
+            0% { transform: translate(10vw, 80vh) rotate(0deg) scale(0.7); opacity: 0; }
+            40% { transform: translate(70vw, 45vh) rotate(-25deg) scale(1.05); opacity: 0.9; }
+            80% { transform: translate(40vw, 15vh) rotate(40deg) scale(0.85); opacity: 0.9; }
+            100% { transform: translate(85vw, -10vh) rotate(-10deg) scale(0.6); opacity: 0; }
+        }
+
+        @keyframes floatSlow5 {
+            0% { transform: translate(80vw, 95vh) rotate(0deg) scale(0.6); opacity: 0; }
+            35% { transform: translate(35vw, 50vh) rotate(35deg) scale(1); opacity: 0.9; }
+            75% { transform: translate(15vw, 20vh) rotate(-45deg) scale(0.9); opacity: 0.9; }
+            100% { transform: translate(50vw, -10vh) rotate(15deg) scale(0.6); opacity: 0; }
+        }
+
+        .butterfly-1 { animation: floatSlow1 linear infinite; }
+        .butterfly-2 { animation: floatSlow2 linear infinite; }
+        .butterfly-3 { animation: floatSlow3 linear infinite; }
+        .butterfly-4 { animation: floatSlow4 linear infinite; }
+        .butterfly-5 { animation: floatSlow5 linear infinite; }
+
+        .butterfly-wrapper {
+            position: absolute;
+            z-index: 6;
+            pointer-events: none;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.95));
+            transform-origin: center;
+        }
+
+        @keyframes wingFlap {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(0.4); }
+        }
+
+        .butterfly-svg {
+            animation: wingFlap 0.45s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-[100dvh] flex flex-col justify-between relative selection:bg-gold selection:text-emerald-deep overflow-x-hidden">
+    <!-- Leaves & Golden Butterflies Container -->
+    <div id="petal-container" class="fixed inset-0 pointer-events-none overflow-hidden z-20"></div>
+
+    <!-- Top Navigation & Music Bar -->
+    <header class="w-full py-2.5 px-3 sm:px-6 flex flex-wrap justify-between items-center gap-2 border-b border-gold/20 bg-emerald-deep/95 z-30 shadow-md">
+        <div class="flex items-center gap-2">
+            <button type="button" onclick="toggleMusic()" class="flex items-center gap-1.5 bg-emerald-dark/90 hover:bg-emerald-dark text-gold border border-gold/40 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-cinzel tracking-wider transition shadow-sm">
+                <i id="music-icon" class="fa-solid fa-volume-xmark text-[10px]"></i>
+                <span id="music-label">Music Off</span>
+            </button>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+            <select id="quick-nav" onchange="goToPage(parseInt(this.value))" class="bg-emerald-dark text-gold border border-gold/40 text-[11px] sm:text-xs font-cinzel rounded px-2 py-1.5 focus:outline-none focus:border-gold max-w-[150px] sm:max-w-none">
+                <option value="0">Cover Page</option>
+                <option value="1">I. Honor of Presence</option>
+                <option value="2">II. Our Love Story</option>
+                <option value="3">III. Treasured Memories</option>
+                <option value="4">IV. The Proposal</option>
+                <option value="5">V. Venues & Location</option>
+                <option value="6">VI. Ceremony Venue</option>
+                <option value="7">VII. Reception Venue</option>
+                <option value="8">VIII. Wedding Timeline</option>
+                <option value="9">IX. Attire & Motif</option>
+                <option value="10">X. Principal Sponsors</option>
+                <option value="11">XI. Guest Wishes Wall</option>
+                <option value="12">XII. RSVP & Gifts</option>
+                <option value="13">XIII. Thank You</option>
+            </select>
+            <button type="button" onclick="openAdminPanel()" class="text-gold/80 hover:text-gold text-[11px] sm:text-xs font-cinzel tracking-wider px-2.5 py-1.5 rounded border border-gold/30 hover:border-gold transition flex items-center gap-1" title="Admin Panel">
+                <i class="fa-solid fa-lock text-[10px]"></i> Admin
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Book Spread Container - Taller and optimized -->
+    <main class="flex-1 flex flex-col items-center justify-center p-3 sm:p-6 md:p-8 book-container my-auto w-full">
+        <div id="spread-wrapper" class="w-full max-w-2xl md:max-w-4xl lg:max-w-5xl bg-emerald-dark floral-corner-frame rounded-xl page-shadow p-5 sm:p-8 md:p-10 relative min-h-[480px] sm:min-h-[560px] md:min-h-[620px] flex flex-col justify-between transition-all duration-500">
+            <!-- Content Container -->
+            <div id="spread-content" class="flex-1 flex flex-col justify-center text-center z-10 my-auto w-full">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Page Navigation Footer -->
+            <div id="navigation-footer" class="flex justify-between items-center pt-4 sm:pt-6 mt-4 border-t border-gold/20 z-10 text-[11px] sm:text-xs font-cinzel text-gold w-full">
+                <button type="button" onclick="prevPage()" id="prev-btn" class="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded border border-gold/30 hover:bg-gold/15 active:bg-gold/30 transition disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-chevron-left"></i> Previous
+                </button>
+                <span id="page-indicator" class="tracking-widest text-gold/90">Page 1 of 14</span>
+                <button type="button" onclick="nextPage()" id="next-btn" class="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded border border-gold/30 hover:bg-gold/15 active:bg-gold/30 transition disabled:opacity-30 disabled:cursor-not-allowed">
+                    Next <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3 text-center text-[10px] text-gold/70 font-cinzel tracking-widest border-t border-gold/10 bg-emerald-dark/60 z-30">
+        Christine & Jovie Wedding • January 6, 2027
+    </footer>
+
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-emerald-950 border-2 border-gold/60 p-6 rounded-lg max-w-sm w-full space-y-4 shadow-2xl relative">
+            <button type="button" onclick="closeAdminModal()" class="absolute top-3 right-3 text-gold/70 hover:text-white p-2"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-cinzel text-lg text-gold text-center tracking-widest">COUPLE & ADMIN ACCESS</h3>
+            <p class="text-xs text-gray-300 text-center font-light">Enter passcode to view guest list & RSVP counter.</p>
+            <form onsubmit="handleAdminAuth(event)" class="space-y-3">
+                <input type="password" inputmode="numeric" id="admin-pass" required placeholder="Enter Passcode (2026)" class="w-full px-3 py-2 text-base sm:text-xs bg-emerald-900/60 border border-gold/40 rounded text-white focus:outline-none focus:border-gold text-center tracking-widest">
+                <button type="submit" class="w-full bg-gold text-emerald-deep font-cinzel text-xs uppercase tracking-widest py-2.5 font-semibold rounded hover:bg-white transition">Verify Access</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- RSVP Dashboard -->
+    <div id="admin-dashboard" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-emerald-950 to-[#021811] border-2 border-gold p-6 rounded-lg max-w-lg w-full space-y-4 shadow-2xl relative max-h-[85dvh] flex flex-col">
+            <div class="flex justify-between items-center border-b border-gold/30 pb-3">
+                <h3 class="font-cinzel text-base text-gold tracking-widest"><i class="fa-solid fa-chart-pie mr-2"></i>RSVP Summary & Guest List</h3>
+                <button type="button" onclick="closeDashboard()" class="text-gold/70 hover:text-white text-lg p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 text-center py-2">
+                <div class="bg-emerald-900/40 p-3 rounded border border-gold/20">
+                    <p class="text-2xl font-cinzel text-gold" id="count-accepts">0</p>
+                    <p class="text-[10px] uppercase text-gray-300 tracking-wider">Accepted</p>
+                </div>
+                <div class="bg-emerald-900/40 p-3 rounded border border-gold/20">
+                    <p class="text-2xl font-cinzel text-gold" id="count-declines">0</p>
+                    <p class="text-[10px] uppercase text-gray-300 tracking-wider">Declined</p>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto space-y-2 pr-1" id="guest-list-container"></div>
+
+            <div class="pt-2 border-t border-gold/20 flex justify-between items-center">
+                <button type="button" onclick="promptClearRSVP()" class="bg-red-950 hover:bg-red-900 text-red-300 border border-red-700/60 font-cinzel text-[10px] uppercase tracking-widest px-4 py-2 font-semibold rounded transition">Clear RSVP List</button>
+                <button type="button" onclick="closeDashboard()" class="bg-gold text-emerald-deep font-cinzel text-xs uppercase tracking-widest px-6 py-2 font-semibold rounded hover:bg-white transition">Close Panel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear RSVP Confirmation Modal -->
+    <div id="clear-pass-modal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+        <div class="bg-emerald-950 border-2 border-gold/80 p-6 rounded-lg max-w-sm w-full space-y-4 shadow-2xl relative">
+            <button type="button" onclick="closeClearPassModal()" class="absolute top-3 right-3 text-gold/70 hover:text-white p-2"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex flex-col items-center text-center space-y-2">
+                <span class="w-10 h-10 rounded-full bg-emerald-900 border border-gold/60 flex items-center justify-center text-gold text-lg">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </span>
+                <h3 class="font-cinzel text-base text-gold tracking-widest">WARNING: DELETION</h3>
+                <p class="text-xs text-gray-200 font-light leading-relaxed">
+                    Are you sure you want to clear the entire RSVP list? <strong class="text-gold">This cannot be undone.</strong>
+                </p>
+                <p class="text-[11px] text-gold/90 font-cinzel pt-1">Enter Passcode (2026) to confirm:</p>
+            </div>
+            <form onsubmit="handleClearRSVPAuth(event)" class="space-y-3">
+                <input type="password" inputmode="numeric" id="clear-pass-input" required placeholder="Enter Passcode (2026)" class="w-full px-3 py-2 text-base sm:text-xs bg-emerald-900/60 border border-gold/50 rounded text-white focus:outline-none text-center tracking-widest">
+                <div class="flex gap-2">
+                    <button type="button" onclick="closeClearPassModal()" class="flex-1 bg-emerald-900/70 text-gray-200 border border-gold/30 font-cinzel text-xs uppercase py-2.5 rounded">Cancel</button>
+                    <button type="submit" class="flex-1 bg-gold text-emerald-deep font-cinzel text-xs uppercase py-2.5 rounded font-semibold">Delete Forever</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center p-4" onclick="closeLightbox()">
+        <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 text-gold text-2xl hover:text-white z-50 bg-black/50 p-2 rounded-full w-12 h-12 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="relative max-w-4xl max-h-[85dvh] flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Zoomed Image" class="max-w-full max-h-[75dvh] object-contain rounded-lg border-2 border-gold/60 shadow-2xl">
+            <p id="lightbox-caption" class="text-gold font-cinzel text-sm mt-3 tracking-widest text-center"></p>
+        </div>
+    </div>
+
+    <!-- Message Box Modal -->
+    <div id="msg-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-emerald-950 border-2 border-gold/60 p-6 rounded-lg max-w-xs w-full space-y-4 shadow-2xl text-center">
+            <p id="msg-text" class="text-xs text-gold font-luxury leading-relaxed"></p>
+            <button type="button" onclick="closeCustomMessage()" class="bg-gold text-emerald-deep font-cinzel text-xs uppercase tracking-widest px-5 py-2 font-semibold rounded hover:bg-white transition">OK</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let currentPage = 0;
+        let isMusicPlaying = false;
+        let musicLoop = null;
+        let pianoSynth = null;
+        
+        let rsvpList = [];
+        let wishesList = [];
+        let hasBeenCleared = false;
+        let isAdminLoggedIn = false;
+        const STORAGE_KEY = 'christine_jovie_wedding_rsvp_v5';
+        const WISHES_STORAGE_KEY = 'christine_jovie_wedding_wishes_v5';
+        const CLEARED_FLAG_KEY = 'christine_jovie_wedding_cleared_v5';
+
+        // Gallery Indices state
+        let galleryIndices = {
+            story: 0,
+            memories: 0,
+            proposal: 0,
+            ceremony: 0,
+            reception: 0
+        };
+
+        let countdownInterval = null;
+
+        const galleryData = {
+            story: [
+                { img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800", caption: "The First Glance • Autumn 2021" },
+                { img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800", caption: "Endless Conversations & Coffee Dates" },
+                { img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800", caption: "Growing Together Through Every Season" }
+            ],
+            memories: [
+                { img: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&q=80&w=800", caption: "Sunset Strolls by the Coast" },
+                { img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800", caption: "Celebrating Milestone Birthdays" },
+                { img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=800", caption: "Weekend Adventures & Road Trips" }
+            ],
+            proposal: [
+                { img: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=800", caption: "The Magical Garden Setup • December 2025" },
+                { img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800", caption: "She Said YES!" },
+                { img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800", caption: "Celebrating with Family & Champagne" }
+            ],
+            ceremony: [
+                { img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800", caption: "Caleruega Chapel Exterior & Garden View" },
+                { img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800", caption: "Historic Stone Chapel Interior" },
+                { img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=800", caption: "Breathtaking Panoramic Views of Batangas" }
+            ],
+            reception: [
+                { img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800", caption: "HillCreek Gardens Gazebo & Lawn" },
+                { img: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&q=80&w=800", caption: "Elegant Reception Pavilion" },
+                { img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800", caption: "Lush Tropical Gardens & Pathways" }
+            ]
+        };
+
+        function nextGalleryImg(key) {
+            galleryIndices[key] = (galleryIndices[key] + 1) % galleryData[key].length;
+            renderPage();
+        }
+
+        function prevGalleryImg(key) {
+            galleryIndices[key] = (galleryIndices[key] - 1 + galleryData[key].length) % galleryData[key].length;
+            renderPage();
+        }
+
+        function showCustomMessage(text) {
+            document.getElementById('msg-text').textContent = text;
+            document.getElementById('msg-modal').classList.remove('hidden');
+        }
+
+        function closeCustomMessage() {
+            document.getElementById('msg-modal').classList.add('hidden');
+        }
+
+        function loadRSVPData() {
+            try {
+                if (localStorage.getItem(CLEARED_FLAG_KEY) === 'true') {
+                    hasBeenCleared = true;
+                }
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved !== null) {
+                    rsvpList = JSON.parse(saved);
+                }
+                const savedWishes = localStorage.getItem(WISHES_STORAGE_KEY);
+                if (savedWishes !== null) {
+                    wishesList = JSON.parse(savedWishes);
+                }
+            } catch (e) {}
+            if (!hasBeenCleared && rsvpList.length === 0) {
+                rsvpList = [];
+                saveRSVPData();
+            }
+            if (wishesList.length === 0) {
+                wishesList = [];
+                saveWishesData();
+            }
+        }
+
+        function saveRSVPData() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(rsvpList));
+                if (hasBeenCleared) {
+                    localStorage.setItem(CLEARED_FLAG_KEY, 'true');
+                }
+            } catch (e) {}
+        }
+
+        function saveWishesData() {
+            try {
+                localStorage.setItem(WISHES_STORAGE_KEY, JSON.stringify(wishesList));
+            } catch (e) {}
+        }
+
+        async function toggleMusic(forcePlay = false) {
+            const icon = document.getElementById('music-icon');
+            const label = document.getElementById('music-label');
+
+            if (isMusicPlaying && !forcePlay) {
+                if (Tone.Transport.state === 'started') {
+                    Tone.Transport.stop();
+                }
+                isMusicPlaying = false;
+                icon.className = 'fa-solid fa-volume-xmark text-[11px]';
+                label.textContent = 'Music Off';
+                return;
+            }
+
+            if (!isMusicPlaying || forcePlay) {
+                try {
+                    if (Tone.context && Tone.context.state !== 'running') {
+                        await Tone.context.resume();
+                    }
+                    await Tone.start();
+
+                    if (!pianoSynth) {
+                        const reverb = new Tone.Reverb({ decay: 4, wet: 0.45 }).toDestination();
+                        pianoSynth = new Tone.PolySynth(Tone.Synth, {
+                            oscillator: { type: "sine" },
+                            envelope: { attack: 0.3, decay: 1.2, sustain: 0.4, release: 2.5 },
+                            volume: -14
+                        }).connect(reverb);
+
+                        const notes = ["D4", "F#4", "A4", "D5", "A3", "E4", "A4", "C#5", "B3", "D4", "F#4", "B4", "G3", "B3", "D4", "G4"];
+                        let step = 0;
+                        musicLoop = new Tone.Loop((time) => {
+                            const note = notes[step % notes.length];
+                            pianoSynth.triggerAttackRelease(note, "2n", time);
+                            step++;
+                        }, "4n").start(0);
+                    }
+                    if (Tone.Transport.state !== 'started') {
+                        Tone.Transport.bpm.value = 68;
+                        Tone.Transport.start();
+                    }
+                    isMusicPlaying = true;
+                    icon.className = 'fa-solid fa-music text-[11px] animate-pulse';
+                    label.textContent = 'Music On';
+                } catch (err) {}
+            }
+        }
+
+        function openInvitationWithMusic() {
+            if (Tone && Tone.start) {
+                Tone.start();
+            }
+            toggleMusic(true);
+            nextPage();
+        }
+
+        function createPetalsAndButterflies() {
+            const container = document.getElementById('petal-container');
+            if (!container) return;
+            
+            // Create falling leaves
+            for (let i = 0; i < 15; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                const size = Math.random() * 10 + 8;
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size * 1.4}px`;
+                leaf.style.left = `${Math.random() * 100}vw`;
+                leaf.style.top = `-${Math.random() * 20}vh`;
+                leaf.style.animationDuration = `${Math.random() * 7 + 5}s`;
+                leaf.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(leaf);
+            }
+
+            // Create 5 golden butterflies
+            const realisticButterflySvg = `<svg class="butterfly-svg" width="44" height="44" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 20C29 11 22 5 15 3C13 2 12 3 13.5 5C15 7 19 11 21 16" stroke="#fff9d6" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M32 20C35 11 42 5 49 3C51 2 52 3 50.5 5C49 7 45 11 43 16" stroke="#fff9d6" stroke-width="1.2" stroke-linecap="round"/>
+                <ellipse cx="32" cy="28" rx="1.8" ry="12" fill="url(#bodyGrad)"/>
+                <circle cx="32" cy="18" r="1.5" fill="#fff5cc"/>
+                <path d="M32 22C27 9 7 4 3 18C-1 32 18 35 32 30Z" fill="url(#goldGrad)" opacity="0.9" stroke="#fff9d6" stroke-width="1.2"/>
+                <path d="M12 14C16 14 22 20 26 26" stroke="#fff9d6" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
+                <path d="M16 10C20 12 24 18 28 22" stroke="#fff9d6" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
+                
+                <path d="M32 22C37 9 57 4 61 18C65 32 46 35 32 30Z" fill="url(#goldGrad)" opacity="0.9" stroke="#fff9d6" stroke-width="1.2"/>
+                <path d="M52 14C48 14 42 20 38 26" stroke="#fff9d6" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
+                <path d="M48 10C44 12 40 18 36 22" stroke="#fff9d6" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
+
+                <path d="M32 28C21 32 9 46 14 53C19 60 30 46 32 36Z" fill="url(#goldGrad)" opacity="0.85" stroke="#fff9d6" stroke-width="1.2"/>
+                <circle cx="20" cy="42" r="1.5" fill="#fff"/>
+                <circle cx="24" cy="46" r="1" fill="#fff"/>
+
+                <path d="M32 28C43 32 55 46 50 53C45 60 34 46 32 36Z" fill="url(#goldGrad)" opacity="0.85" stroke="#fff9d6" stroke-width="1.2"/>
+                <circle cx="44" cy="42" r="1.5" fill="#fff"/>
+                <circle cx="40" cy="46" r="1" fill="#fff"/>
+
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff9d6"/>
+                        <stop offset="40%" stop-color="#e6ca65"/>
+                        <stop offset="100%" stop-color="#997305"/>
+                    </linearGradient>
+                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#d4af37"/>
+                    </linearGradient>
+                </defs>
+            </svg>`;
+
+            const butterflyClasses = ['butterfly-1', 'butterfly-2', 'butterfly-3', 'butterfly-4', 'butterfly-5'];
+            for (let j = 0; j < 5; j++) {
+                const butterfly = document.createElement('div');
+                butterfly.className = `butterfly-wrapper ${butterflyClasses[j]}`;
+                butterfly.innerHTML = realisticButterflySvg;
+                butterfly.style.animationDuration = `${Math.random() * 5 + 16}s`;
+                butterfly.style.animationDelay = `${j * 3.5}s`;
+                container.appendChild(butterfly);
+            }
+        }
+
+        function openLightbox(imgSrc, captionText) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-caption').textContent = captionText || '';
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function openAdminPanel() {
+            if (isAdminLoggedIn || window.isAdminLoggedIn) {
+                updateDashboardStats();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+            } else {
+                openAdminModal();
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function handleAdminAuth(e) {
+            e.preventDefault();
+            if (document.getElementById('admin-pass').value === '2026') {
+                isAdminLoggedIn = true;
+                window.isAdminLoggedIn = true;
+                closeAdminModal();
+                document.getElementById('admin-pass').value = '';
+                updateDashboardStats();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                renderWishesWall();
+                showCustomMessage('Admin Access Granted! Delete buttons are now visible on the Guest Wishes Wall.');
+            } else {
+                showCustomMessage('Incorrect passcode. Please try 2026.');
+            }
+        }
+
+        function promptClearRSVP() {
+            document.getElementById('clear-pass-input').value = '';
+            document.getElementById('clear-pass-modal').classList.remove('hidden');
+        }
+
+        function closeClearPassModal() {
+            document.getElementById('clear-pass-modal').classList.add('hidden');
+        }
+
+        function handleClearRSVPAuth(e) {
+            e.preventDefault();
+            if (document.getElementById('clear-pass-input').value.trim() === '2026') {
+                rsvpList = [];
+                hasBeenCleared = true;
+                saveRSVPData();
+                updateDashboardStats();
+                closeClearPassModal();
+                showCustomMessage('All RSVP records permanently deleted.');
+            } else {
+                showCustomMessage('Incorrect passcode. Enter 2026.');
+            }
+        }
+
+        function closeDashboard() {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+        }
+
+        function updateDashboardStats() {
+            loadRSVPData();
+            document.getElementById('count-accepts').textContent = rsvpList.filter(r => r.status === 'Joyfully Accepts').length;
+            document.getElementById('count-declines').textContent = rsvpList.filter(r => r.status === 'Regretfully Declines').length;
+
+            const container = document.getElementById('guest-list-container');
+            container.innerHTML = '';
+            if (rsvpList.length === 0) {
+                container.innerHTML = `<p class="text-center text-xs text-gray-400 py-6 italic font-cinzel">No RSVP entries found.</p>`;
+                return;
+            }
+
+            rsvpList.forEach((guest, index) => {
+                const div = document.createElement('div');
+                div.className = "flex justify-between items-center bg-[#175941]/60 p-2.5 rounded border border-gold/20 text-xs";
+                div.innerHTML = `
+                    <div>
+                        <p class="font-cinzel text-gold font-semibold">${index + 1}. ${escapeHTML(guest.name)}</p>
+                        <p class="text-[10px] text-gray-300">Dietary: ${escapeHTML(guest.allergy || 'None')}</p>
+                    </div>
+                    <span class="px-2 py-1 rounded text-[10px] font-semibold ${guest.status === 'Joyfully Accepts' ? 'bg-emerald-900 text-gold border border-gold/50' : 'bg-red-950 text-red-300 border border-red-700/50'}">${escapeHTML(guest.status)}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        function handleRSVPSubmit(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('rsvp-name').value.trim();
+            const statusInput = document.getElementById('rsvp-status').value;
+            const allergyInput = document.getElementById('rsvp-allergy').value.trim();
+
+            if (!nameInput) return;
+
+            rsvpList.push({ name: nameInput, status: statusInput, allergy: allergyInput });
+            saveRSVPData();
+
+            document.getElementById('rsvp-form-container').innerHTML = `
+                <div class="bg-emerald-900/60 border border-gold/40 p-5 rounded-lg text-center space-y-2">
+                    <i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+                    <h4 class="font-cinzel text-gold text-base tracking-widest">RSVP Received!</h4>
+                    <p class="text-xs text-gray-200 font-luxury">Thank you, <strong class="text-gold">${escapeHTML(nameInput)}</strong>. Your response has been recorded successfully.</p>
+                </div>
+            `;
+            showCustomMessage('Thank you for confirming your RSVP!');
+        }
+
+        function handleWishSubmit(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('wish-name').value.trim();
+            const msgInput = document.getElementById('wish-msg').value.trim();
+
+            if (!nameInput || !msgInput) return;
+
+            const nowStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            wishesList.unshift({ id: Date.now(), name: nameInput, message: msgInput, date: nowStr });
+            saveWishesData();
+
+            document.getElementById('wish-name').value = '';
+            document.getElementById('wish-msg').value = '';
+            renderWishesWall();
+            showCustomMessage('Your heartfelt wish has been posted to the wall!');
+        }
+
+        function deleteWish(id) {
+            wishesList = wishesList.filter(item => item.id !== id);
+            saveWishesData();
+            renderWishesWall();
+            showCustomMessage('Wish deleted successfully.');
+        }
+
+        function renderWishesWall() {
+            const wall = document.getElementById('wishes-wall-grid');
+            if (!wall) return;
+            wall.innerHTML = '';
+            
+            if (wishesList.length === 0) {
+                wall.innerHTML = `<p class="text-center text-xs text-gray-400 py-4 italic font-cinzel">No wishes posted yet. Be the first to send a wish!</p>`;
+                return;
+            }
+
+            wishesList.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = "bg-emerald-950/70 border border-gold/30 p-3 rounded-lg text-left space-y-1 shadow-md relative";
+                
+                let deleteBtnHtml = '';
+                if (isAdminLoggedIn || window.isAdminLoggedIn) {
+                    deleteBtnHtml = `<button type="button" onclick="deleteWish(${item.id})" class="text-red-400 hover:text-red-300 text-xs px-2 py-1 rounded border border-red-800/40 bg-red-950/60 ml-2 cursor-pointer transition flex items-center gap-1" title="Delete Wish"><i class="fa-solid fa-trash-can text-xs"></i> Delete</button>`;
+                }
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center border-b border-gold/20 pb-1">
+                        <span class="font-cinzel text-xs text-gold font-semibold">${escapeHTML(item.name)}</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[9px] text-gray-400">${escapeHTML(item.date)}</span>
+                            ${deleteBtnHtml}
+                        </div>
+                    </div>
+                    <p class="text-xs font-luxury text-gray-200 italic leading-relaxed break-words">"${escapeHTML(item.message)}"</p>
+                `;
+                wall.appendChild(card);
+            });
+        }
+
+        // Complete 14 Pages Definition
+        const pages = [
+            // Page 0: Cover Page
+            {
+                type: 'cover',
+                render: () => `
+                    <div class="url-cover-frame"></div>
+                    <div class="cover-content-box space-y-4">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">The Wedding Celebration</span>
+                        <h1 class="font-script text-4xl sm:text-6xl text-gold drop-shadow-lg">Christine & Jovie</h1>
+                        <div class="w-16 h-[1px] bg-gold mx-auto"></div>
+                        <p class="font-luxury text-xs sm:text-sm text-gray-100 tracking-wider uppercase">January 6, 2027 • Caleruega Chapel</p>
+                        <button type="button" onclick="openInvitationWithMusic()" class="mt-4 bg-gold text-emerald-deep font-cinzel text-xs sm:text-sm uppercase tracking-widest px-6 py-3 rounded-full font-bold shadow-lg hover:bg-white transition flex items-center gap-2 mx-auto">
+                            <i class="fa-solid fa-envelope-open-text"></i> Open Invitation
+                        </button>
+                    </div>
+                `
+            },
+            // Page 1: Honor of Presence with Couple Photo & Live Countdown
+            {
+                type: 'single',
+                render: () => `
+                    <div class="absolute inset-0 rounded-xl overflow-hidden z-0">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200" alt="Couple Background" class="w-full h-full object-cover filter brightness-[0.4] contrast-125">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/60 to-emerald-950/40"></div>
+                    </div>
+                    <div class="max-w-xl mx-auto space-y-3 sm:space-y-4 text-center my-auto py-4 relative z-10">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Joyful Union</span>
+                        <h2 class="font-cinzel text-2xl sm:text-4xl text-gold drop-shadow-md">The Honor of Your Presence</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        <p class="font-luxury text-sm sm:text-base text-gray-100 leading-relaxed italic px-2 drop-shadow">
+                            "And over all these virtues put on love, which binds them all together in perfect unity."
+                        </p>
+                        <p class="text-xs sm:text-sm text-gold font-cinzel tracking-widest">Colossians 3:14</p>
+                        <p class="font-luxury text-xs sm:text-sm text-gray-100 leading-relaxed pt-1 drop-shadow">
+                            Together with their families, <strong class="text-gold font-semibold">Christine Mae Santos</strong> and <strong class="text-gold font-semibold">Jovie Carlo Reyes</strong> joyfully invite you to celebrate their marriage as they exchange vows before God and loved ones.
+                        </p>
+
+                        <!-- Live Wedding Countdown Timer -->
+                        <div class="pt-2">
+                            <p class="text-[10px] sm:text-xs font-cinzel text-gold tracking-widest uppercase mb-2">Countdown to Forever</p>
+                            <div id="wedding-countdown" class="grid grid-cols-4 gap-2 max-w-sm mx-auto bg-emerald-950/85 p-2.5 rounded-lg border border-gold/40 shadow-lg text-center">
+                                <div class="flex flex-col">
+                                    <span id="cd-days" class="font-cinzel text-lg sm:text-xl text-gold font-bold">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-gray-300">Days</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span id="cd-hours" class="font-cinzel text-lg sm:text-xl text-gold font-bold">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-gray-300">Hours</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span id="cd-mins" class="font-cinzel text-lg sm:text-xl text-gold font-bold">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-gray-300">Mins</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span id="cd-secs" class="font-cinzel text-lg sm:text-xl text-gold font-bold">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-gray-300">Secs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 2: Our Love Story (With Gallery)
+            {
+                type: 'split',
+                render: () => {
+                    const idx = galleryIndices.story;
+                    const item = galleryData.story[idx];
+                    return `
+                        <div class="space-y-4 text-center md:text-left">
+                            <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Chapter I</span>
+                            <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Our Love Story</h2>
+                            <div class="w-10 h-[1px] bg-gold/70 mx-auto md:mx-0"></div>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                Our paths crossed during a crisp autumn evening in 2021. What began as a chance meeting over shared coffee and laughter quickly blossomed into an unbreakable bond of friendship, trust, and deep romance.
+                            </p>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                Through every adventure and quiet moment, we knew we had found our forever home in each other's hearts.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="relative w-full max-w-[280px] sm:max-w-[320px] h-[220px] sm:h-[260px] rounded-lg overflow-hidden border-2 border-gold/50 shadow-xl cursor-pointer" onclick="openLightbox('${item.img}', '${item.caption}')">
+                                <img src="${item.img}" alt="Love Story" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                                <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-1.5 text-center">
+                                    <p class="text-[11px] font-cinzel text-gold">${item.caption}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-1">
+                                <button type="button" onclick="prevGalleryImg('story')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                                <span class="text-[11px] font-cinzel text-gold/80">${idx + 1} / ${galleryData.story.length}</span>
+                                <button type="button" onclick="nextGalleryImg('story')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // Page 3: Treasured Memories (With Gallery)
+            {
+                type: 'split',
+                render: () => {
+                    const idx = galleryIndices.memories;
+                    const item = galleryData.memories[idx];
+                    return `
+                        <div class="space-y-4 text-center md:text-left">
+                            <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Chapter II</span>
+                            <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Treasured Memories</h2>
+                            <div class="w-10 h-[1px] bg-gold/70 mx-auto md:mx-0"></div>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                From spontaneous weekend getaways to quiet sunset strolls along the coast, every moment together has woven a beautiful tapestry of cherished memories.
+                            </p>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                We invite you to look back at some of our favorite snapshots on the journey that brought us here today.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="relative w-full max-w-[280px] sm:max-w-[320px] h-[220px] sm:h-[260px] rounded-lg overflow-hidden border-2 border-gold/50 shadow-xl cursor-pointer" onclick="openLightbox('${item.img}', '${item.caption}')">
+                                <img src="${item.img}" alt="Memories" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                                <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-1.5 text-center">
+                                    <p class="text-[11px] font-cinzel text-gold">${item.caption}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-1">
+                                <button type="button" onclick="prevGalleryImg('memories')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                                <span class="text-[11px] font-cinzel text-gold/80">${idx + 1} / ${galleryData.memories.length}</span>
+                                <button type="button" onclick="nextGalleryImg('memories')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // Page 4: The Proposal (With Gallery)
+            {
+                type: 'split',
+                render: () => {
+                    const idx = galleryIndices.proposal;
+                    const item = galleryData.proposal[idx];
+                    return `
+                        <div class="space-y-4 text-center md:text-left">
+                            <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Chapter III</span>
+                            <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">The Proposal</h2>
+                            <div class="w-10 h-[1px] bg-gold/70 mx-auto md:mx-0"></div>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                Beneath a canopy of twinkling fairy lights and blooming white roses, Jovie dropped to one knee in a breathtaking secret garden.
+                            </p>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                With tears of overwhelming joy and a heart full of absolute certainty, Christine answered the easiest question of her life: "Yes, a thousand times yes."
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="relative w-full max-w-[280px] sm:max-w-[320px] h-[220px] sm:h-[260px] rounded-lg overflow-hidden border-2 border-gold/50 shadow-xl cursor-pointer" onclick="openLightbox('${item.img}', '${item.caption}')">
+                                <img src="${item.img}" alt="Proposal" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                                <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-1.5 text-center">
+                                    <p class="text-[11px] font-cinzel text-gold">${item.caption}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-1">
+                                <button type="button" onclick="prevGalleryImg('proposal')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                                <span class="text-[11px] font-cinzel text-gold/80">${idx + 1} / ${galleryData.proposal.length}</span>
+                                <button type="button" onclick="nextGalleryImg('proposal')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // Page 5: Venues & Location Overview
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-4 text-center my-auto py-4">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">The Destination</span>
+                        <h2 class="font-cinzel text-2xl sm:text-4xl text-gold">Venues & Location</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                            Our wedding will take place amidst the cool, scenic landscapes of Alfonso and Tagaytay, Philippines—a tranquil sanctuary overlooking magnificent mountain vistas and lush gardens.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-emerald-950/70 p-4 rounded-lg border border-gold/30 space-y-2">
+                                <i class="fa-solid fa-church text-gold text-xl"></i>
+                                <h3 class="font-cinzel text-gold text-sm tracking-wider">Ceremony</h3>
+                                <p class="text-xs text-gray-300 font-luxury">Caleruega Chapel of Transfiguration, Nasugbu, Batangas</p>
+                            </div>
+                            <div class="bg-emerald-950/70 p-4 rounded-lg border border-gold/30 space-y-2">
+                                <i class="fa-solid fa-champagne-glasses text-gold text-xl"></i>
+                                <h3 class="font-cinzel text-gold text-sm tracking-wider">Reception</h3>
+                                <p class="text-xs text-gray-300 font-luxury">HillCreek Gardens, Alfonso, Cavite</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 6: Ceremony Venue (With Gallery)
+            {
+                type: 'split',
+                render: () => {
+                    const idx = galleryIndices.ceremony;
+                    const item = galleryData.ceremony[idx];
+                    return `
+                        <div class="space-y-4 text-center md:text-left">
+                            <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Holy Matrimony</span>
+                            <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Caleruega Chapel</h2>
+                            <div class="w-10 h-[1px] bg-gold/70 mx-auto md:mx-0"></div>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                <strong class="text-gold">Time:</strong> 2:00 PM in the Afternoon<br>
+                                <strong class="text-gold">Location:</strong> Brgy. Caylaway, Caleruega Road, Nasugbu, Batangas
+                            </p>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                Perched upon rolling hills with rustic red brick walls and stained glass windows, Caleruega Chapel provides a spiritual and serene sanctuary for our sacred vows.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="relative w-full max-w-[280px] sm:max-w-[320px] h-[220px] sm:h-[260px] rounded-lg overflow-hidden border-2 border-gold/50 shadow-xl cursor-pointer" onclick="openLightbox('${item.img}', '${item.caption}')">
+                                <img src="${item.img}" alt="Ceremony Venue" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                                <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-1.5 text-center">
+                                    <p class="text-[11px] font-cinzel text-gold">${item.caption}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-1">
+                                <button type="button" onclick="prevGalleryImg('ceremony')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                                <span class="text-[11px] font-cinzel text-gold/80">${idx + 1} / ${galleryData.ceremony.length}</span>
+                                <button type="button" onclick="nextGalleryImg('ceremony')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // Page 7: Reception Venue (With Gallery)
+            {
+                type: 'split',
+                render: () => {
+                    const idx = galleryIndices.reception;
+                    const item = galleryData.reception[idx];
+                    return `
+                        <div class="space-y-4 text-center md:text-left">
+                            <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Celebration & Feast</span>
+                            <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">HillCreek Gardens</h2>
+                            <div class="w-10 h-[1px] bg-gold/70 mx-auto md:mx-0"></div>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                <strong class="text-gold">Time:</strong> 5:00 PM in the Evening<br>
+                                <strong class="text-gold">Location:</strong> Alfonso, Cavite (Near Tagaytay)
+                            </p>
+                            <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                                Join us for an enchanting evening of gourmet dining, music, dancing, and heartfelt toasts amidst lush tropical gardens and glittering fairy lights.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="relative w-full max-w-[280px] sm:max-w-[320px] h-[220px] sm:h-[260px] rounded-lg overflow-hidden border-2 border-gold/50 shadow-xl cursor-pointer" onclick="openLightbox('${item.img}', '${item.caption}')">
+                                <img src="${item.img}" alt="Reception Venue" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                                <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm p-1.5 text-center">
+                                    <p class="text-[11px] font-cinzel text-gold">${item.caption}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-1">
+                                <button type="button" onclick="prevGalleryImg('reception')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                                <span class="text-[11px] font-cinzel text-gold/80">${idx + 1} / ${galleryData.reception.length}</span>
+                                <button type="button" onclick="nextGalleryImg('reception')" class="bg-emerald-900/80 hover:bg-emerald-900 text-gold border border-gold/40 px-3 py-1 rounded text-xs font-cinzel">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            // Page 8: Wedding Timeline
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-4 text-center my-auto py-2">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Order of Events</span>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Wedding Timeline</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left pt-1">
+                            <div class="bg-emerald-950/70 p-3 rounded border border-gold/30">
+                                <p class="font-cinzel text-gold text-xs font-semibold">1:30 PM — Guest Arrival</p>
+                                <p class="text-[11px] text-gray-300 font-luxury">Caleruega Chapel Seating</p>
+                            </div>
+                            <div class="bg-emerald-950/70 p-3 rounded border border-gold/30">
+                                <p class="font-cinzel text-gold text-xs font-semibold">2:00 PM — Ceremony Begins</p>
+                                <p class="text-[11px] text-gray-300 font-luxury">Exchange of Vows & Rings</p>
+                            </div>
+                            <div class="bg-emerald-950/70 p-3 rounded border border-gold/30">
+                                <p class="font-cinzel text-gold text-xs font-semibold">4:00 PM — Garden Cocktails</p>
+                                <p class="text-[11px] text-gray-300 font-luxury">HillCreek Gardens Arrival & Photos</p>
+                            </div>
+                            <div class="bg-emerald-950/70 p-3 rounded border border-gold/30">
+                                <p class="font-cinzel text-gold text-xs font-semibold">5:30 PM — Grand Reception</p>
+                                <p class="text-[11px] text-gray-300 font-luxury">Dinner, Toasts & Dancing</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 9: Attire & Motif
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-4 text-center my-auto py-3">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Dress Code</span>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Attire & Color Motif</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        <p class="font-luxury text-sm sm:text-base text-gray-200 leading-relaxed">
+                            We would love for our family and friends to dress in formal attire aligned with our wedding palette.
+                        </p>
+                        <div class="flex justify-center items-center gap-3 py-2">
+                            <div class="text-center">
+                                <div class="w-10 h-10 rounded-full bg-[#032418] border-2 border-gold shadow-md mx-auto"></div>
+                                <span class="text-[10px] font-cinzel text-gold mt-1 block">Deep Emerald</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-10 h-10 rounded-full bg-[#d4af37] border-2 border-white shadow-md mx-auto"></div>
+                                <span class="text-[10px] font-cinzel text-gold mt-1 block">Champagne Gold</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-10 h-10 rounded-full bg-[#f3f4f6] border-2 border-gold shadow-md mx-auto"></div>
+                                <span class="text-[10px] font-cinzel text-gold mt-1 block">Ivory Cream</span>
+                            </div>
+                        </div>
+                        <p class="font-luxury text-xs sm:text-sm text-gray-300 leading-relaxed italic">
+                            <strong class="text-gold not-italic">Gentlemen:</strong> Barong Tagalog or Formal Suit.<br>
+                            <strong class="text-gold not-italic">Ladies:</strong> Long Formal Gown in Motif Colors.
+                        </p>
+                    </div>
+                `
+            },
+            // Page 10: Principal Sponsors
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-4 text-center my-auto py-4">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Guiding Lights</span>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Principal Sponsors</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        <p class="font-luxury text-xs sm:text-sm text-gray-300 italic">We are honored to have these esteemed individuals as our principal witnesses and mentors:</p>
+                        <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm font-luxury text-gray-100 pt-2">
+                            <div class="bg-emerald-950/60 p-4 rounded border border-gold/20 space-y-1.5">
+                                <p class="font-cinzel text-gold font-semibold mb-2 text-sm">Godparents (Male)</p>
+                                <p>Mr. Eduardo Santos</p>
+                                <p>Atty. Ricardo Villanueva</p>
+                                <p>Dr. Fernando Mendoza</p>
+                                <p>Mr. Roberto Alcantara</p>
+                            </div>
+                            <div class="bg-emerald-950/60 p-4 rounded border border-gold/20 space-y-1.5">
+                                <p class="font-cinzel text-gold font-semibold mb-2 text-sm">Godparents (Female)</p>
+                                <p>Mrs. Carmen Santos</p>
+                                <p>Dr. Sofia Reyes</p>
+                                <p>Mrs. Teresita Benitez</p>
+                                <p>Atty. Elena Gomez</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 11: Guest Wishes Wall
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-3 text-center my-auto py-2 w-full">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Well Wishes</span>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">Send Your Wishes</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        
+                        <form onsubmit="handleWishSubmit(event)" class="bg-emerald-950/80 p-3 rounded-lg border border-gold/30 space-y-2 text-left">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <input type="text" id="wish-name" required placeholder="Your Name / Family" class="w-full px-3 py-1.5 bg-emerald-900/60 border border-gold/40 rounded text-xs text-white focus:outline-none focus:border-gold">
+                                <input type="text" id="wish-msg" required placeholder="Your message for Christine & Jovie..." class="w-full px-3 py-1.5 bg-emerald-900/60 border border-gold/40 rounded text-xs text-white focus:outline-none focus:border-gold">
+                            </div>
+                            <button type="submit" class="w-full bg-gold text-emerald-deep font-cinzel text-xs uppercase tracking-widest py-2 font-semibold rounded hover:bg-white transition">Post Wish</button>
+                        </form>
+
+                        <div class="max-h-[170px] sm:max-h-[190px] overflow-y-auto space-y-2 pr-1" id="wishes-wall-grid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                `
+            },
+            // Page 12: RSVP & Gifts
+            {
+                type: 'single',
+                render: () => `
+                    <div class="max-w-xl mx-auto space-y-3 text-center my-auto py-2">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">Kindly Respond</span>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl text-gold">RSVP & Gift Registry</h2>
+                        <div class="w-12 h-[1px] bg-gold/70 mx-auto"></div>
+                        
+                        <div id="rsvp-form-container">
+                            <form onsubmit="handleRSVPSubmit(event)" class="bg-emerald-950/80 p-3.5 rounded-lg border border-gold/30 space-y-2.5 text-left">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <input type="text" id="rsvp-name" required placeholder="Full Name(s)" class="w-full px-3 py-1.5 bg-emerald-900/60 border border-gold/40 rounded text-xs text-white focus:outline-none focus:border-gold">
+                                    <select id="rsvp-status" class="w-full px-3 py-1.5 bg-emerald-900/60 border border-gold/40 rounded text-xs text-gold focus:outline-none focus:border-gold">
+                                        <option value="Joyfully Accepts">Joyfully Accepts</option>
+                                        <option value="Regretfully Declines">Regretfully Declines</option>
+                                    </select>
+                                </div>
+                                <input type="text" id="rsvp-allergy" placeholder="Dietary Restrictions / Allergies (Optional)" class="w-full px-3 py-1.5 bg-emerald-900/60 border border-gold/40 rounded text-xs text-white focus:outline-none focus:border-gold">
+                                <button type="submit" class="w-full bg-gold text-emerald-deep font-cinzel text-xs uppercase tracking-widest py-2 font-semibold rounded hover:bg-white transition">Submit RSVP</button>
+                            </form>
+                        </div>
+
+                        <div class="bg-emerald-950/60 p-3 rounded border border-gold/20 text-xs text-gray-200 font-luxury">
+                            <p class="font-cinzel text-gold font-semibold mb-1"><i class="fa-solid fa-gift mr-1.5"></i> Wedding Registry & Gifts</p>
+                            <p>Your presence at our wedding is the greatest gift of all! If you wish to bless us with a monetary gift, QRPH / Bank transfer details are available upon request.</p>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 13: Thank You
+            {
+                type: 'cover',
+                render: () => `
+                    <div class="url-cover-frame"></div>
+                    <div class="cover-content-box space-y-4">
+                        <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-cinzel">With Endless Gratitude</span>
+                        <h2 class="font-script text-4xl sm:text-6xl text-gold drop-shadow-lg">Thank You</h2>
+                        <div class="w-16 h-[1px] bg-gold mx-auto"></div>
+                        <p class="font-luxury text-sm sm:text-base text-gray-100 leading-relaxed px-2">
+                            We are profoundly blessed to have you in our lives and to share this monumental milestone with you. Thank you for your love, prayers, and constant support.
+                        </p>
+                        <p class="font-cinzel text-xs sm:text-sm text-gold tracking-widest pt-2">CHRISTINE & JOVIE</p>
+                    </div>
+                `
+            }
+        ];
+
+        function renderPage() {
+            const contentEl = document.getElementById('spread-content');
+            const indicatorEl = document.getElementById('page-indicator');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const quickNav = document.getElementById('quick-nav');
+            const navFooter = document.getElementById('navigation-footer');
+
+            const page = pages[currentPage];
+            
+            // Hide navigation footer on Cover Page (0) and Thank You Page (13)
+            if (currentPage === 0 || currentPage === pages.length - 1) {
+                navFooter.classList.add('hidden');
+            } else {
+                navFooter.classList.remove('hidden');
+            }
+
+            if (page.type === 'split') {
+                contentEl.className = "flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center text-center md:text-left z-10 my-auto w-full";
+            } else if (page.type === 'cover') {
+                contentEl.className = "flex-1 flex flex-col items-center justify-center text-center z-10 my-auto w-full relative overflow-hidden";
+            } else {
+                contentEl.className = "flex-1 flex flex-col items-center justify-center text-center z-10 my-auto w-full";
+            }
+
+            contentEl.innerHTML = page.render();
+            indicatorEl.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+            quickNav.value = currentPage;
+
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === pages.length - 1;
+
+            if (currentPage === 1) {
+                updateCountdown();
+                if (countdownInterval) clearInterval(countdownInterval);
+                countdownInterval = setInterval(updateCountdown, 1000);
+            } else {
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                }
+            }
+
+            if (currentPage === 11) {
+                renderWishesWall();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                renderPage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                renderPage();
+            }
+        }
+
+        function goToPage(pageIdx) {
+            if (pageIdx >= 0 && pageIdx < pages.length) {
+                currentPage = pageIdx;
+                renderPage();
+            }
+        }
+
+        function updateCountdown() {
+            const weddingDate = new Date('January 6, 2027 14:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const daysEl = document.getElementById('cd-days');
+            const hoursEl = document.getElementById('cd-hours');
+            const minsEl = document.getElementById('cd-mins');
+            const secsEl = document.getElementById('cd-secs');
+
+            if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+            if (distance < 0) {
+                daysEl.textContent = "00";
+                hoursEl.textContent = "00";
+                minsEl.textContent = "00";
+                secsEl.textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minsEl.textContent = String(minutes).padStart(2, '0');
+            secsEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Initialize App on Window Load
+        window.onload = function() {
+            loadRSVPData();
+            createPetalsAndButterflies();
+            renderPage();
+        };
+    </script>
+</body>
+</html>
